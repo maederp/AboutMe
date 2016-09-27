@@ -1,0 +1,6 @@
+framework module Pods_AboutMe {
+  umbrella header "Pods-AboutMe-umbrella.h"
+
+  export *
+  module * { export * }
+}

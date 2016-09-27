@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dwT-TY-au4">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--GitHub-->
+        <scene sceneID="JiC-lm-clS">
+            <objects>
+                <viewController id="BSP-hV-sO9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jtl-MH-6Cv"/>
+                        <viewControllerLayoutGuide type="bottom" id="bEr-a7-i2C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Osh-4w-Wcl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="GitHub" image="Github" id="hnV-Gp-sa8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vSj-X2-9cI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="588"/>
+        </scene>
+        <!--Instagram-->
+        <scene sceneID="DCM-zm-MeO">
+            <objects>
+                <viewController id="ocR-eK-phn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pNK-qQ-dfH"/>
+                        <viewControllerLayoutGuide type="bottom" id="gK9-aI-WeO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HoF-rP-5iu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Instagram" image="Instagram" id="KqL-Fj-0xa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xtW-S8-QZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82" y="1227"/>
+        </scene>
+        <!--AboutMe-->
+        <scene sceneID="dij-gN-oE7">
+            <objects>
+                <viewController id="PGL-W8-8ET" customClass="AboutMeViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gZV-yn-nY7"/>
+                        <viewControllerLayoutGuide type="bottom" id="fIv-bc-gaA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="txt-ZP-kKq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GAc-Ks-UeW">
+                                <color key="backgroundColor" red="0.097769699990749359" green="0.34227973222732544" blue="0.49610525369644165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="223" id="YPl-Us-HUU"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZR-XF-Ari">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="8h3-n3-XfS"/>
+                                    <constraint firstAttribute="width" constant="200" id="eEa-cK-MhG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDU-Tt-m7Q">
+                                <frame key="frameInset" minX="16" minY="331" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="John Doe">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name=".AppleSystemUIFontEmphasized"/>
+                                            <font key="NSOriginalFont" size="17" name=".AppleSystemUIFontEmphasized"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GAc-Ks-UeW" firstAttribute="leading" secondItem="txt-ZP-kKq" secondAttribute="leading" id="FmX-Yp-56G"/>
+                            <constraint firstItem="PZR-XF-Ari" firstAttribute="centerX" secondItem="txt-ZP-kKq" secondAttribute="centerX" id="Ukm-CI-OrY"/>
+                            <constraint firstAttribute="trailing" secondItem="GAc-Ks-UeW" secondAttribute="trailing" id="iOR-lD-7vA"/>
+                            <constraint firstItem="GAc-Ks-UeW" firstAttribute="top" secondItem="txt-ZP-kKq" secondAttribute="top" id="nL5-tB-LcO"/>
+                            <constraint firstItem="PZR-XF-Ari" firstAttribute="top" secondItem="GAc-Ks-UeW" secondAttribute="bottom" constant="-100" id="vye-OZ-lBy"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="AboutMe" image="AboutMe" id="Qf1-wA-sGI"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="GAc-Ks-UeW" id="ClM-26-MjF"/>
+                        <outlet property="nameLabel" destination="uDU-Tt-m7Q" id="UCO-aM-gyU"/>
+                        <outlet property="photoImageView" destination="PZR-XF-Ari" id="Mog-fx-ENb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dsk-SE-hJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="-67.016491754122939"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="sVR-lD-45T">
+            <objects>
+                <tabBarController id="dwT-TY-au4" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ziD-jP-1b6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="PGL-W8-8ET" kind="relationship" relationship="viewControllers" id="tBo-Ms-cOn"/>
+                        <segue destination="BSP-hV-sO9" kind="relationship" relationship="viewControllers" id="Ax0-dg-0lC"/>
+                        <segue destination="ocR-eK-phn" kind="relationship" relationship="viewControllers" id="Bhn-Rt-xxG"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TnX-9Y-EKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-701" y="261"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AboutMe" width="25" height="25"/>
+        <image name="Github" width="25" height="25"/>
+        <image name="Instagram" width="25" height="25"/>
+    </resources>
+</document>
