@@ -17,6 +17,7 @@
 		D03E2E761D995CA0004FEE8A /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03E2E751D995CA0004FEE8A /* GCD.swift */; };
 		D03E2E781D9A746B004FEE8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D03E2E771D9A746B004FEE8A /* GoogleService-Info.plist */; };
 		D0566B6A1D9A8D2D004CEC13 /* FireStorageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0566B691D9A8D2D004CEC13 /* FireStorageClient.swift */; };
+		D0B83FE41D9D3089009BAE93 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FE31D9D3089009BAE93 /* MessageComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D03E2E751D995CA0004FEE8A /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		D03E2E771D9A746B004FEE8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0566B691D9A8D2D004CEC13 /* FireStorageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStorageClient.swift; sourceTree = "<group>"; };
+		D0B83FE31D9D3089009BAE93 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				D03E2E6B1D99442B004FEE8A /* AboutMeViewController.swift */,
 				D0566B691D9A8D2D004CEC13 /* FireStorageClient.swift */,
+				D0B83FE31D9D3089009BAE93 /* MessageComposer.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				D0566B6A1D9A8D2D004CEC13 /* FireStorageClient.swift in Sources */,
 				D03E2E591D9711F5004FEE8A /* AboutMe.xcdatamodeld in Sources */,
 				D03E2E511D9711F5004FEE8A /* AppDelegate.swift in Sources */,
+				D0B83FE41D9D3089009BAE93 /* MessageComposer.swift in Sources */,
 				D03E2E6C1D99442B004FEE8A /* AboutMeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

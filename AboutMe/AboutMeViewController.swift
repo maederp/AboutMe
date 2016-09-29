@@ -23,6 +23,8 @@ class AboutMeViewController: UIViewController {
     @IBOutlet weak var mailButton: UIButton!
     
     
+    private let messageComposer = MessageComposer()
+    
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
@@ -51,8 +53,18 @@ class AboutMeViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func sendMessage(_ sender: UIButton) {
-        print("sendMessage")
+        
         sender.backgroundColor = UIColor.white
+        
+        if !messageComposer.canSendMessage(){
+            print("i can send sms/imessages")
+            
+            let messageComposerVC = messageComposer.configureMessageComposeViewController()
+            present(messageComposerVC, animated: true, completion: nil)
+            
+        }else{ //Show alert message if sending messages isn't available
+            showOKAlert(title: "Alert - Send Message unavailable", actionText: "OK", message: "Sending Messages is not supported on your device")
+        }
     }
     
     @IBAction func initiatePhoneCall(_ sender: UIButton) {
@@ -66,8 +78,8 @@ class AboutMeViewController: UIViewController {
     }
     
     @IBAction func buttonReleased(_ sender: UIButton) {
-        sender.backgroundColor = UIColor.gray
-//        sender.backgroundColor = UIColor.init(red: CGFloat(25), green: CGFloat(87), blue: CGFloat(127), alpha: CGFloat(0.7))
+        let blueColor = UIColor.init(red: 25, green: 87, blue: 127, alpha: 0.7)
+        sender.backgroundColor = blueColor
     }
 
     // MARK: Utilities
@@ -76,5 +88,14 @@ class AboutMeViewController: UIViewController {
         for button in buttons{
             button.layer.cornerRadius = CGFloat(radius)
         }
+    }
+    
+    private func showOKAlert(title: String, actionText: String, message: String){
+    
+        let action = UIAlertAction(title: actionText, style: .default, handler: nil)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(action)
+    
+        present(alertController, animated: true, completion: nil)
     }
 }
