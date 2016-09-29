@@ -22,8 +22,8 @@ class AboutMeViewController: UIViewController {
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var mailButton: UIButton!
     
-    
     private let messageComposer = MessageComposer()
+    private let mailComposer = MailComposer()
     
     // MARK: View Lifecycle
     
@@ -56,8 +56,7 @@ class AboutMeViewController: UIViewController {
         
         sender.backgroundColor = UIColor.white
         
-        if !messageComposer.canSendMessage(){
-            print("i can send sms/imessages")
+        if messageComposer.canSendMessage(){
             
             let messageComposerVC = messageComposer.configureMessageComposeViewController()
             present(messageComposerVC, animated: true, completion: nil)
@@ -68,13 +67,29 @@ class AboutMeViewController: UIViewController {
     }
     
     @IBAction func initiatePhoneCall(_ sender: UIButton) {
-        print("initiatePhoneCall")
+
         sender.backgroundColor = UIColor.white
+        
+        if let phoneCallURL:URL = URL(string: "tel://+41796618780") {
+            if (UIApplication.shared.canOpenURL(phoneCallURL)) {
+                UIApplication.shared.open(phoneCallURL, options: [:] , completionHandler: nil)
+            }
+        }
     }
     
     @IBAction func sendMail(_ sender: UIButton) {
-        print("sendMail")
+        
         sender.backgroundColor = UIColor.white
+        
+        if mailComposer.canSendMail(){
+            
+            let mailComposerVC = mailComposer.configureMailComposeViewController()
+            present(mailComposerVC, animated: true, completion: nil)
+            
+        }else{
+            showOKAlert(title: "Alert - Send Mail unavailable", actionText: "OK", message: "Sending Mails is not supported on your device")
+        }
+        
     }
     
     @IBAction func buttonReleased(_ sender: UIButton) {
