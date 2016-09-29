@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="252" y="588"/>
         </scene>
-        <!--Instagram-->
+        <!--Flickr-->
         <scene sceneID="DCM-zm-MeO">
             <objects>
                 <viewController id="ocR-eK-phn" sceneMemberID="viewController">
@@ -38,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Instagram" image="Instagram" id="KqL-Fj-0xa"/>
+                    <tabBarItem key="tabBarItem" title="Flickr" image="Flickr" id="KqL-Fj-0xa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtW-S8-QZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,9 +58,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GAc-Ks-UeW">
-                                <color key="backgroundColor" red="0.097769699990749359" green="0.34227973222732544" blue="0.49610525369644165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.3411764705882353" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="223" id="YPl-Us-HUU"/>
+                                    <constraint firstAttribute="height" constant="173" id="YPl-Us-HUU"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZR-XF-Ari">
@@ -69,34 +70,76 @@
                                     <constraint firstAttribute="width" constant="200" id="eEa-cK-MhG"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDU-Tt-m7Q">
-                                <frame key="frameInset" minX="16" minY="331" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDU-Tt-m7Q">
                                 <attributedString key="attributedText">
-                                    <fragment content="John Doe">
+                                    <fragment content="Peter Mäder">
                                         <attributes>
                                             <font key="NSFont" size="17" name=".AppleSystemUIFontEmphasized"/>
-                                            <font key="NSOriginalFont" size="17" name=".AppleSystemUIFontEmphasized"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJJ-2r-3JV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0ZH-kR-ASo"/>
+                                    <constraint firstAttribute="width" constant="40" id="VLo-lR-K7f"/>
+                                </constraints>
+                                <state key="normal" image="Phone"/>
+                                <connections>
+                                    <action selector="buttonReleased:" destination="PGL-W8-8ET" eventType="touchDown" id="ks9-iM-e8i"/>
+                                    <action selector="initiatePhoneCall:" destination="PGL-W8-8ET" eventType="touchUpInside" id="a1S-FZ-x4b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rod-u8-N0V">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NaX-ce-mBj"/>
+                                    <constraint firstAttribute="width" constant="40" id="pvy-SZ-5G2"/>
+                                </constraints>
+                                <state key="normal" image="Message"/>
+                                <connections>
+                                    <action selector="buttonReleased:" destination="PGL-W8-8ET" eventType="touchDown" id="Bya-3c-EYF"/>
+                                    <action selector="sendMessage:" destination="PGL-W8-8ET" eventType="touchUpInside" id="WhB-QJ-juu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2i-ZQ-Xkf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="A8o-hA-92F"/>
+                                    <constraint firstAttribute="width" constant="40" id="st3-kl-7H8"/>
+                                </constraints>
+                                <state key="normal" image="Mail"/>
+                                <connections>
+                                    <action selector="buttonReleased:" destination="PGL-W8-8ET" eventType="touchDown" id="PdA-BF-RKn"/>
+                                    <action selector="sendMail:" destination="PGL-W8-8ET" eventType="touchUpInside" id="6RH-z2-nup"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="uDU-Tt-m7Q" secondAttribute="trailing" id="45Z-hT-UsL"/>
                             <constraint firstItem="GAc-Ks-UeW" firstAttribute="leading" secondItem="txt-ZP-kKq" secondAttribute="leading" id="FmX-Yp-56G"/>
+                            <constraint firstItem="NJJ-2r-3JV" firstAttribute="leading" secondItem="Rod-u8-N0V" secondAttribute="trailing" constant="40" id="HrO-qA-6L8"/>
                             <constraint firstItem="PZR-XF-Ari" firstAttribute="centerX" secondItem="txt-ZP-kKq" secondAttribute="centerX" id="Ukm-CI-OrY"/>
+                            <constraint firstItem="N2i-ZQ-Xkf" firstAttribute="leading" secondItem="NJJ-2r-3JV" secondAttribute="trailing" constant="40" id="XKQ-V2-aoH"/>
+                            <constraint firstItem="NJJ-2r-3JV" firstAttribute="centerX" secondItem="txt-ZP-kKq" secondAttribute="centerX" id="gF6-0L-Zes"/>
                             <constraint firstAttribute="trailing" secondItem="GAc-Ks-UeW" secondAttribute="trailing" id="iOR-lD-7vA"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="uDU-Tt-m7Q" secondAttribute="leading" id="kPc-qv-BPr"/>
+                            <constraint firstItem="Rod-u8-N0V" firstAttribute="top" secondItem="uDU-Tt-m7Q" secondAttribute="bottom" constant="14" id="lpK-sn-Do2"/>
                             <constraint firstItem="GAc-Ks-UeW" firstAttribute="top" secondItem="txt-ZP-kKq" secondAttribute="top" id="nL5-tB-LcO"/>
+                            <constraint firstItem="N2i-ZQ-Xkf" firstAttribute="top" secondItem="uDU-Tt-m7Q" secondAttribute="bottom" constant="14" id="rhm-Qd-1Bq"/>
+                            <constraint firstItem="NJJ-2r-3JV" firstAttribute="top" secondItem="uDU-Tt-m7Q" secondAttribute="bottom" constant="14" id="rni-n8-aIk"/>
+                            <constraint firstItem="uDU-Tt-m7Q" firstAttribute="top" secondItem="PZR-XF-Ari" secondAttribute="bottom" constant="8" id="uY8-Of-L6t"/>
                             <constraint firstItem="PZR-XF-Ari" firstAttribute="top" secondItem="GAc-Ks-UeW" secondAttribute="bottom" constant="-100" id="vye-OZ-lBy"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="AboutMe" image="AboutMe" id="Qf1-wA-sGI"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="GAc-Ks-UeW" id="ClM-26-MjF"/>
+                        <outlet property="mailButton" destination="N2i-ZQ-Xkf" id="sQO-ab-jY6"/>
+                        <outlet property="messageButton" destination="Rod-u8-N0V" id="eKP-Yn-rJh"/>
                         <outlet property="nameLabel" destination="uDU-Tt-m7Q" id="UCO-aM-gyU"/>
+                        <outlet property="phoneButton" destination="NJJ-2r-3JV" id="7Ro-dY-pdW"/>
                         <outlet property="photoImageView" destination="PZR-XF-Ari" id="Mog-fx-ENb"/>
                     </connections>
                 </viewController>
@@ -126,7 +169,10 @@
     </scenes>
     <resources>
         <image name="AboutMe" width="25" height="25"/>
+        <image name="Flickr" width="24" height="24"/>
         <image name="Github" width="25" height="25"/>
-        <image name="Instagram" width="25" height="25"/>
+        <image name="Mail" width="25" height="25"/>
+        <image name="Message" width="25" height="25"/>
+        <image name="Phone" width="25" height="25"/>
     </resources>
 </document>
