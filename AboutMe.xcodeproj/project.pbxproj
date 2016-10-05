@@ -15,10 +15,22 @@
 		D03E2E5E1D9711F5004FEE8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03E2E5C1D9711F5004FEE8A /* LaunchScreen.storyboard */; };
 		D03E2E6C1D99442B004FEE8A /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03E2E6B1D99442B004FEE8A /* AboutMeViewController.swift */; };
 		D03E2E761D995CA0004FEE8A /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03E2E751D995CA0004FEE8A /* GCD.swift */; };
-		D03E2E781D9A746B004FEE8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D03E2E771D9A746B004FEE8A /* GoogleService-Info.plist */; };
 		D0566B6A1D9A8D2D004CEC13 /* FireStorageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0566B691D9A8D2D004CEC13 /* FireStorageClient.swift */; };
 		D0B83FE41D9D3089009BAE93 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FE31D9D3089009BAE93 /* MessageComposer.swift */; };
 		D0B83FE61D9D511F009BAE93 /* MailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FE51D9D511F009BAE93 /* MailComposer.swift */; };
+		D0B83FEA1D9D6298009BAE93 /* GithubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FE91D9D6298009BAE93 /* GithubViewController.swift */; };
+		D0B83FEC1D9E31C1009BAE93 /* GithubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FEB1D9E31C1009BAE93 /* GithubClient.swift */; };
+		D0B83FEE1D9E358F009BAE93 /* RestNetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FED1D9E358F009BAE93 /* RestNetworkConstants.swift */; };
+		D0B83FF11DA3E398009BAE93 /* RestNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF01DA3E398009BAE93 /* RestNetworkClient.swift */; };
+		D0B83FF61DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF21DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift */; };
+		D0B83FF71DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF31DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift */; };
+		D0B83FF81DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF41DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift */; };
+		D0B83FF91DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF51DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift */; };
+		D0B83FFF1DA4DAF2009BAE93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B83FFE1DA4DAF2009BAE93 /* GoogleService-Info.plist */; };
+		D0B840011DA50D10009BAE93 /* FlickrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B840001DA50D10009BAE93 /* FlickrViewController.swift */; };
+		D0DAFF4F1DA5125D00C17D69 /* FlickrCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF4E1DA5125D00C17D69 /* FlickrCollectionViewCell.swift */; };
+		D0DAFF511DA56AC900C17D69 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF501DA56AC900C17D69 /* FlickrClient.swift */; };
+		D0DAFF531DA56D9300C17D69 /* FlickrConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF521DA56D9300C17D69 /* FlickrConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +46,22 @@
 		D03E2E5F1D9711F5004FEE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03E2E6B1D99442B004FEE8A /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		D03E2E751D995CA0004FEE8A /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
-		D03E2E771D9A746B004FEE8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0566B691D9A8D2D004CEC13 /* FireStorageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStorageClient.swift; sourceTree = "<group>"; };
 		D0B83FE31D9D3089009BAE93 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		D0B83FE51D9D511F009BAE93 /* MailComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailComposer.swift; sourceTree = "<group>"; };
+		D0B83FE91D9D6298009BAE93 /* GithubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubViewController.swift; sourceTree = "<group>"; };
+		D0B83FEB1D9E31C1009BAE93 /* GithubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubClient.swift; sourceTree = "<group>"; };
+		D0B83FED1D9E358F009BAE93 /* RestNetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestNetworkConstants.swift; sourceTree = "<group>"; };
+		D0B83FF01DA3E398009BAE93 /* RestNetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestNetworkClient.swift; sourceTree = "<group>"; };
+		D0B83FF21DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GithubRepositoryOwner+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D0B83FF31DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GithubRepositoryOwner+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0B83FF41DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GithubRepository+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D0B83FF51DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GithubRepository+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0B83FFE1DA4DAF2009BAE93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D0B840001DA50D10009BAE93 /* FlickrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrViewController.swift; sourceTree = "<group>"; };
+		D0DAFF4E1DA5125D00C17D69 /* FlickrCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0DAFF501DA56AC900C17D69 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
+		D0DAFF521DA56D9300C17D69 /* FlickrConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +122,7 @@
 				D03E2E541D9711F5004FEE8A /* Main.storyboard */,
 				D03E2E5C1D9711F5004FEE8A /* LaunchScreen.storyboard */,
 				D03E2E5F1D9711F5004FEE8A /* Info.plist */,
-				D03E2E771D9A746B004FEE8A /* GoogleService-Info.plist */,
+				D0B83FFE1DA4DAF2009BAE93 /* GoogleService-Info.plist */,
 			);
 			path = AboutMe;
 			sourceTree = "<group>";
@@ -106,6 +130,7 @@
 		D03E2E6D1D994431004FEE8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D0DAFF4E1DA5125D00C17D69 /* FlickrCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -113,6 +138,10 @@
 		D03E2E6E1D99443C004FEE8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D0B83FF21DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift */,
+				D0B83FF31DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift */,
+				D0B83FF41DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift */,
+				D0B83FF51DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift */,
 				D03E2E571D9711F5004FEE8A /* AboutMe.xcdatamodeld */,
 			);
 			name = Model;
@@ -121,10 +150,11 @@
 		D03E2E6F1D994444004FEE8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D03E2E6B1D99442B004FEE8A /* AboutMeViewController.swift */,
-				D0566B691D9A8D2D004CEC13 /* FireStorageClient.swift */,
-				D0B83FE31D9D3089009BAE93 /* MessageComposer.swift */,
-				D0B83FE51D9D511F009BAE93 /* MailComposer.swift */,
+				D0B83FFD1DA4C500009BAE93 /* Flickr */,
+				D0B83FFA1DA4C491009BAE93 /* AboutMe */,
+				D0B83FEF1DA3D118009BAE93 /* Github */,
+				D0B83FFB1DA4C4B3009BAE93 /* REST */,
+				D0B83FFC1DA4C4E6009BAE93 /* Firebase */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -136,6 +166,52 @@
 				D03E2E751D995CA0004FEE8A /* GCD.swift */,
 			);
 			name = Supporting;
+			sourceTree = "<group>";
+		};
+		D0B83FEF1DA3D118009BAE93 /* Github */ = {
+			isa = PBXGroup;
+			children = (
+				D0B83FE91D9D6298009BAE93 /* GithubViewController.swift */,
+				D0B83FEB1D9E31C1009BAE93 /* GithubClient.swift */,
+			);
+			name = Github;
+			sourceTree = "<group>";
+		};
+		D0B83FFA1DA4C491009BAE93 /* AboutMe */ = {
+			isa = PBXGroup;
+			children = (
+				D03E2E6B1D99442B004FEE8A /* AboutMeViewController.swift */,
+				D0B83FE31D9D3089009BAE93 /* MessageComposer.swift */,
+				D0B83FE51D9D511F009BAE93 /* MailComposer.swift */,
+			);
+			name = AboutMe;
+			sourceTree = "<group>";
+		};
+		D0B83FFB1DA4C4B3009BAE93 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				D0B83FF01DA3E398009BAE93 /* RestNetworkClient.swift */,
+				D0B83FED1D9E358F009BAE93 /* RestNetworkConstants.swift */,
+			);
+			name = REST;
+			sourceTree = "<group>";
+		};
+		D0B83FFC1DA4C4E6009BAE93 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				D0566B691D9A8D2D004CEC13 /* FireStorageClient.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		D0B83FFD1DA4C500009BAE93 /* Flickr */ = {
+			isa = PBXGroup;
+			children = (
+				D0B840001DA50D10009BAE93 /* FlickrViewController.swift */,
+				D0DAFF501DA56AC900C17D69 /* FlickrClient.swift */,
+				D0DAFF521DA56D9300C17D69 /* FlickrConstants.swift */,
+			);
+			name = Flickr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03E2E5E1D9711F5004FEE8A /* LaunchScreen.storyboard in Resources */,
-				D03E2E781D9A746B004FEE8A /* GoogleService-Info.plist in Resources */,
+				D0B83FFF1DA4DAF2009BAE93 /* GoogleService-Info.plist in Resources */,
 				D03E2E5B1D9711F5004FEE8A /* Assets.xcassets in Resources */,
 				D03E2E561D9711F5004FEE8A /* Main.storyboard in Resources */,
 			);
@@ -263,13 +339,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B83FF81DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift in Sources */,
+				D0B83FEE1D9E358F009BAE93 /* RestNetworkConstants.swift in Sources */,
 				D03E2E761D995CA0004FEE8A /* GCD.swift in Sources */,
+				D0DAFF4F1DA5125D00C17D69 /* FlickrCollectionViewCell.swift in Sources */,
 				D0566B6A1D9A8D2D004CEC13 /* FireStorageClient.swift in Sources */,
 				D03E2E591D9711F5004FEE8A /* AboutMe.xcdatamodeld in Sources */,
+				D0DAFF531DA56D9300C17D69 /* FlickrConstants.swift in Sources */,
+				D0B83FF91DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift in Sources */,
+				D0B83FF11DA3E398009BAE93 /* RestNetworkClient.swift in Sources */,
 				D03E2E511D9711F5004FEE8A /* AppDelegate.swift in Sources */,
+				D0B83FF71DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift in Sources */,
 				D0B83FE41D9D3089009BAE93 /* MessageComposer.swift in Sources */,
 				D0B83FE61D9D511F009BAE93 /* MailComposer.swift in Sources */,
+				D0B83FEC1D9E31C1009BAE93 /* GithubClient.swift in Sources */,
 				D03E2E6C1D99442B004FEE8A /* AboutMeViewController.swift in Sources */,
+				D0B83FF61DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift in Sources */,
+				D0B83FEA1D9D6298009BAE93 /* GithubViewController.swift in Sources */,
+				D0B840011DA50D10009BAE93 /* FlickrViewController.swift in Sources */,
+				D0DAFF511DA56AC900C17D69 /* FlickrClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,6 +43,10 @@ class AboutMeViewController: UIViewController {
                     self.photoImageView.image = image
                     self.photoImageView.contentMode = .scaleAspectFit
                 }
+            }else{
+                performUIUpdatesOnMain{
+                    self.showOKAlert(title: "Alert - No Connection", actionText: "OK", message: "Currently unable to download the AboutMe Image. Please retry later")
+                }
             }
         }
         
@@ -93,8 +97,7 @@ class AboutMeViewController: UIViewController {
     }
     
     @IBAction func buttonReleased(_ sender: UIButton) {
-        let blueColor = UIColor.init(red: 25, green: 87, blue: 127, alpha: 0.7)
-        sender.backgroundColor = blueColor
+        sender.backgroundColor = UIColor.lightGray
     }
 
     // MARK: Utilities

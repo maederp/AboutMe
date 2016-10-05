@@ -43,7 +43,6 @@ class FireStorageClient {
                 
             } else {
                 if let image = UIImage(data: data!){
-                    print ("FirStorag download succeeded: \(image.description)")
                     completionHandler( image, nil)
                 }
             }
