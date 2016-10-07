@@ -31,6 +31,9 @@
 		D0DAFF4F1DA5125D00C17D69 /* FlickrCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF4E1DA5125D00C17D69 /* FlickrCollectionViewCell.swift */; };
 		D0DAFF511DA56AC900C17D69 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF501DA56AC900C17D69 /* FlickrClient.swift */; };
 		D0DAFF531DA56D9300C17D69 /* FlickrConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF521DA56D9300C17D69 /* FlickrConstants.swift */; };
+		D0DAFF561DA65DE700C17D69 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF541DA65DE700C17D69 /* Photo+CoreDataClass.swift */; };
+		D0DAFF571DA65DE700C17D69 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF551DA65DE700C17D69 /* Photo+CoreDataProperties.swift */; };
+		D0DAFF591DA6679D00C17D69 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF581DA6679D00C17D69 /* CoreDataStackManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		D0DAFF4E1DA5125D00C17D69 /* FlickrCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0DAFF501DA56AC900C17D69 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 		D0DAFF521DA56D9300C17D69 /* FlickrConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrConstants.swift; sourceTree = "<group>"; };
+		D0DAFF541DA65DE700C17D69 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D0DAFF551DA65DE700C17D69 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0DAFF581DA6679D00C17D69 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,11 +144,14 @@
 		D03E2E6E1D99443C004FEE8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D0DAFF541DA65DE700C17D69 /* Photo+CoreDataClass.swift */,
+				D0DAFF551DA65DE700C17D69 /* Photo+CoreDataProperties.swift */,
 				D0B83FF21DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift */,
 				D0B83FF31DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift */,
 				D0B83FF41DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift */,
 				D0B83FF51DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift */,
 				D03E2E571D9711F5004FEE8A /* AboutMe.xcdatamodeld */,
+				D0DAFF581DA6679D00C17D69 /* CoreDataStackManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -339,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DAFF571DA65DE700C17D69 /* Photo+CoreDataProperties.swift in Sources */,
 				D0B83FF81DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift in Sources */,
 				D0B83FEE1D9E358F009BAE93 /* RestNetworkConstants.swift in Sources */,
 				D03E2E761D995CA0004FEE8A /* GCD.swift in Sources */,
@@ -349,7 +359,9 @@
 				D0B83FF91DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift in Sources */,
 				D0B83FF11DA3E398009BAE93 /* RestNetworkClient.swift in Sources */,
 				D03E2E511D9711F5004FEE8A /* AppDelegate.swift in Sources */,
+				D0DAFF561DA65DE700C17D69 /* Photo+CoreDataClass.swift in Sources */,
 				D0B83FF71DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift in Sources */,
+				D0DAFF591DA6679D00C17D69 /* CoreDataStackManager.swift in Sources */,
 				D0B83FE41D9D3089009BAE93 /* MessageComposer.swift in Sources */,
 				D0B83FE61D9D511F009BAE93 /* MailComposer.swift in Sources */,
 				D0B83FEC1D9E31C1009BAE93 /* GithubClient.swift in Sources */,

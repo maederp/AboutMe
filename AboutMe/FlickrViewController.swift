@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class FlickrViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FlickrViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, NSFetchedResultsControllerDelegate {
     
     // MARK: Properties & Outlets
     @IBOutlet weak var flickrPhotos: UICollectionView!
@@ -19,38 +20,58 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
     var deletedIndexPaths: [IndexPath]!
     var updatedIndexPaths: [IndexPath]!
 
+    // NSManagedObject Context
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
     
     // MARK: View Lifecycle Section
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: fetch Photos from CoreData
+        do{
+            try fetchedResultsController.performFetch()
+        }catch{
+            print(error)
+        }
+        
+        fetchedResultsController.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: false)
-
-        FlickrClient.sharedInstance().getPhotosBy(userID: "147944923@N02", completionHandler: {(data, error) in
         
-            if error == nil{
+        //pick Flickr UserID from Info.plist
+        let flickrUserID = Bundle.main.object(forInfoDictionaryKey: "FlickrUserID") as! String
+        
+    
+        //check if any Photo is fetched from CoreData - if 0, then load them from Flickr
+        if fetchedResultsController.fetchedObjects?.count == 0 {
+        
+            FlickrClient.sharedInstance().getPhotosBy(userID: flickrUserID, completionHandler: {(data, error) in
                 
-                print("Flickr Data: \(data!)")
-                
-            }else{
-                self.showOKAlert(title: "Alert - Flickr Data unavailable", actionText: "OK", message: "Cannot load Flickr Data. Please retry later")
-            }
-        })
+                if error == nil{
+                    print("Flickr Data: \(data!)")
+                }else{
+                    self.showOKAlert(title: "Alert - Flickr Data unavailable", actionText: "OK", message: "Cannot load Flickr Data. Please retry later")
+                }
+            })
+            
+        }
+        
     }
     
     
     // MARK: Collection View Section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        //let sectionInfo = fetchedResultsController.sections![section]
-        
-        //return sectionInfo.numberOfObjects
-        return 10
+        let sectionInfo = fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,8 +80,40 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let cell = flickrPhotos.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! FlickrCollectionViewCell
         
-        cell.imageView.image = UIImage(named: "PhotoPlaceholder")
-        
+        performUIUpdatesOnMain {
+            cell.imageView.image = UIImage(named: "PhotoPlaceholder")
+            cell.imageView.contentMode = .center
+            
+            if let photo = self.fetchedResultsController.fetchedObjects?[indexPath.item] as? Photo {
+                if photo.image != nil{
+                    cell.imageView.contentMode = .scaleAspectFill
+                    cell.imageView.image = UIImage(data: photo.image as! Data)
+                } else{
+                    cell.imageViewActivityIndicator.startAnimating()
+                    
+                    FlickrClient.sharedInstance().getFotoForId(photo.id){ (image, error) in
+                        
+                        if image != nil {
+                            
+                            photo.image = image as? NSData
+                            CoreDataStackManager.sharedInstance().saveContext()
+                            
+                            cell.imageView.contentMode = .scaleAspectFill
+                            cell.imageView.image = UIImage(data: photo.image as! Data)
+                            cell.imageViewActivityIndicator.stopAnimating()
+                            
+                        } else {
+                            cell.imageViewActivityIndicator.stopAnimating()
+                        }
+                    }
+                }
+            } else {
+                
+                print("irgend ein Problem")
+                
+            }
+        }
+
         return cell
     }
     
@@ -68,7 +121,54 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
         
     }
     
+    // MARK: CoreData Section
+    lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
+        let fetchRequest : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Photo")
+        
+        fetchRequest.sortDescriptors = []
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return fetchedResultsController
+    }()
+    
+    
+    // MARK: FetchedResultsController Delegate Section
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        insertedIndexPaths = [IndexPath]()
+        deletedIndexPaths = [IndexPath]()
+        updatedIndexPaths = [IndexPath]()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type{
+            
+        case .insert:
+            insertedIndexPaths.append(newIndexPath!)
+        case .delete:
+            deletedIndexPaths.append(indexPath!)
+        case .update:
+            updatedIndexPaths.append(indexPath!)
+        case .move:
+            print("Move an item. Not implemented in this app.")
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        self.flickrPhotos.performBatchUpdates( {() -> Void in
+            self.flickrPhotos.insertItems(at: self.insertedIndexPaths)
+            self.flickrPhotos.deleteItems(at: self.deletedIndexPaths)
+            self.flickrPhotos.reloadItems(at: self.updatedIndexPaths)
+            }, completion: nil)
+    
+    }
+    
+    
     // MARK: Utilities & Helpers
+    
     private func showOKAlert(title: String, actionText: String, message: String){
         
         let action = UIAlertAction(title: actionText, style: .default, handler: nil)

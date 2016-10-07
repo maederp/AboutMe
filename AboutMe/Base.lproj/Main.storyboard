@@ -109,21 +109,21 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RID-hI-PhM">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Lr1-AS-wvL">
-                                    <size key="itemSize" width="100" height="75"/>
+                                    <size key="itemSize" width="180" height="138"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="3" minY="3" maxX="3" maxY="3"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrCollectionViewCell" id="fLS-ja-v6U" customClass="FlickrCollectionViewCell" customModule="AboutMe" customModuleProvider="target">
-                                        <rect key="frame" x="3" y="3" width="100" height="75"/>
+                                        <rect key="frame" x="3" y="3" width="180" height="138"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="138"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zpz-X1-Uf3"/>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Huu-Pm-Ru1"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Huu-Pm-Ru1"/>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -134,9 +134,10 @@
                                             <constraint firstItem="Huu-Pm-Ru1" firstAttribute="leading" secondItem="fLS-ja-v6U" secondAttribute="leading" id="sla-Fr-hY9"/>
                                             <constraint firstItem="zpz-X1-Uf3" firstAttribute="centerY" secondItem="fLS-ja-v6U" secondAttribute="centerY" id="tuh-zK-pA6"/>
                                         </constraints>
-                                        <size key="customSize" width="100" height="75"/>
+                                        <size key="customSize" width="180" height="138"/>
                                         <connections>
                                             <outlet property="imageView" destination="Huu-Pm-Ru1" id="LVM-ab-eNE"/>
+                                            <outlet property="imageViewActivityIndicator" destination="zpz-X1-Uf3" id="pyu-a3-6Q9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
