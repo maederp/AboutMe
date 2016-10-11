@@ -45,6 +45,7 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        
         //pick Flickr UserID from Info.plist
         let flickrUserID = Bundle.main.object(forInfoDictionaryKey: "FlickrUserID") as! String
         
@@ -119,6 +120,15 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let photo = fetchedResultsController.object(at: indexPath) as? Photo
+        
+        performUIUpdatesOnMain {
+            if let imageDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "FlickrDetailViewController") as? FlickrDetailViewController{
+            
+                imageDetailVC.image = UIImage(data: (photo?.image as? Data)!)
+                self.navigationController?.pushViewController(imageDetailVC, animated: true)
+            }
+        }
     }
     
     // MARK: CoreData Section
@@ -165,7 +175,7 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
             }, completion: nil)
     
     }
-    
+
     
     // MARK: Utilities & Helpers
     

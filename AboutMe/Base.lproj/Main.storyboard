@@ -43,11 +43,11 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bkN-mS-kBI" id="K1m-ho-zfk">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ukI-wd-ZDE">
-                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                    <frame key="frameInset" minX="15" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -159,11 +159,44 @@
                     <navigationItem key="navigationItem" id="jA0-7X-XDH"/>
                     <connections>
                         <outlet property="flickrPhotos" destination="RID-hI-PhM" id="UVv-Yt-sC3"/>
+                        <segue destination="n9S-17-ntw" kind="show" identifier="showFlickrDetailViewController" id="gIH-2u-eD1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtW-S8-QZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-367.19999999999999" y="1253.5232383808097"/>
+        </scene>
+        <!--Flickr Detail View Controller-->
+        <scene sceneID="9Nm-Wo-KFP">
+            <objects>
+                <viewController storyboardIdentifier="FlickrDetailViewController" id="n9S-17-ntw" customClass="FlickrDetailViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OEe-4n-Vvd"/>
+                        <viewControllerLayoutGuide type="bottom" id="KZp-af-t3s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8w6-OJ-idT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="40n-j8-o28">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="40n-j8-o28" firstAttribute="leading" secondItem="8w6-OJ-idT" secondAttribute="leading" id="n6b-kH-XqB"/>
+                            <constraint firstItem="KZp-af-t3s" firstAttribute="top" secondItem="40n-j8-o28" secondAttribute="bottom" id="nbv-jh-xPN"/>
+                            <constraint firstItem="40n-j8-o28" firstAttribute="top" secondItem="OEe-4n-Vvd" secondAttribute="bottom" id="tuh-tV-SwQ"/>
+                            <constraint firstAttribute="trailing" secondItem="40n-j8-o28" secondAttribute="trailing" id="u17-JO-iVC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="FlickrDetailImageView" destination="40n-j8-o28" id="e0w-eM-kRM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4F-ZO-pdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-367.19999999999999" y="1946.176911544228"/>
         </scene>
         <!--AboutMe-->
         <scene sceneID="dij-gN-oE7">

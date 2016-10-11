@@ -34,6 +34,7 @@
 		D0DAFF561DA65DE700C17D69 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF541DA65DE700C17D69 /* Photo+CoreDataClass.swift */; };
 		D0DAFF571DA65DE700C17D69 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF551DA65DE700C17D69 /* Photo+CoreDataProperties.swift */; };
 		D0DAFF591DA6679D00C17D69 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF581DA6679D00C17D69 /* CoreDataStackManager.swift */; };
+		D0DAFF5B1DA7BA6300C17D69 /* FlickrDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAFF5A1DA7BA6300C17D69 /* FlickrDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		D0DAFF541DA65DE700C17D69 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D0DAFF551DA65DE700C17D69 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0DAFF581DA6679D00C17D69 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		D0DAFF5A1DA7BA6300C17D69 /* FlickrDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				D0B840001DA50D10009BAE93 /* FlickrViewController.swift */,
+				D0DAFF5A1DA7BA6300C17D69 /* FlickrDetailViewController.swift */,
 				D0DAFF501DA56AC900C17D69 /* FlickrClient.swift */,
 				D0DAFF521DA56D9300C17D69 /* FlickrConstants.swift */,
 			);
@@ -361,6 +364,7 @@
 				D03E2E511D9711F5004FEE8A /* AppDelegate.swift in Sources */,
 				D0DAFF561DA65DE700C17D69 /* Photo+CoreDataClass.swift in Sources */,
 				D0B83FF71DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift in Sources */,
+				D0DAFF5B1DA7BA6300C17D69 /* FlickrDetailViewController.swift in Sources */,
 				D0DAFF591DA6679D00C17D69 /* CoreDataStackManager.swift in Sources */,
 				D0B83FE41D9D3089009BAE93 /* MessageComposer.swift in Sources */,
 				D0B83FE61D9D511F009BAE93 /* MailComposer.swift in Sources */,
