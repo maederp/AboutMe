@@ -66,6 +66,35 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.resignFirstResponder()
+        super.viewWillDisappear(animated)
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+    
+    
+    // MARK: Shake Motion Section
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if ( motion == UIEventSubtype.motionShake){
+            performUIUpdatesOnMain {
+                self.loadNewSetOfPhotos()
+            }
+        }
+    }
+    
+    override func motionCancelled(_ motion: UIEventSubtype, with event: UIEvent?) {
+    }
     
     // MARK: Collection View Section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -187,4 +216,41 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    func loadNewSetOfPhotos() -> Void {
+        
+        let actionSheet = UIAlertController(title: "Do you like to reload Photos ?", message: nil, preferredStyle: .actionSheet)
+        
+        let reloadAction = UIAlertAction(title: "Yes, please reload", style: .default, handler: reloadHandler)
+        
+        let cancelAction = UIAlertAction(title: "No, keep photos", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(reloadAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func reloadHandler(_ action: UIAlertAction!){
+        
+        // delete all photos for this pin
+        if let photos = fetchedResultsController.fetchedObjects as? [Photo] {
+            for photo in photos {
+                sharedContext.delete(photo)
+            }
+            CoreDataStackManager.sharedInstance().saveContext()
+        }
+        
+        let flickrUserID = Bundle.main.object(forInfoDictionaryKey: "FlickrUserID") as! String
+        
+        FlickrClient.sharedInstance().getPhotosBy(userID: flickrUserID, completionHandler: { (data, error) in
+        
+            if error == nil{
+                print("Fotos loaded into CoreData")
+            }else{
+                print ("Error: \(error?.domain)")
+            }
+        })
+    }
+
 }
