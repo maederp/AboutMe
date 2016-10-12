@@ -28,7 +28,7 @@ class GithubDetailViewController: UIViewController, UIWebViewDelegate {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Create Return/Done Navigation Button
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "back", style: .done, target: self, action: #selector(FlickrDetailViewController.dismissViewController))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(FlickrDetailViewController.dismissViewController))
 
         let githubURL = URL(string: webViewURL)!
         let urlRequest = URLRequest(url: githubURL)

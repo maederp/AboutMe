@@ -311,10 +311,21 @@
                                     <action selector="sendMail:" destination="PGL-W8-8ET" eventType="touchUpInside" id="6RH-z2-nup"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-jR-BNy">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="RG3-vS-5Pm"/>
+                                    <constraint firstAttribute="width" constant="50" id="zb4-ue-PFa"/>
+                                </constraints>
+                                <state key="normal" image="Reload"/>
+                                <connections>
+                                    <action selector="reloadPhotoButtonPressed:" destination="PGL-W8-8ET" eventType="touchUpInside" id="lxC-RM-ceh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="uDU-Tt-m7Q" secondAttribute="trailing" id="45Z-hT-UsL"/>
+                            <constraint firstItem="e1i-jR-BNy" firstAttribute="trailing" secondItem="PZR-XF-Ari" secondAttribute="trailing" id="7Uv-wp-lIL"/>
                             <constraint firstItem="GAc-Ks-UeW" firstAttribute="leading" secondItem="txt-ZP-kKq" secondAttribute="leading" id="FmX-Yp-56G"/>
                             <constraint firstItem="NJJ-2r-3JV" firstAttribute="leading" secondItem="Rod-u8-N0V" secondAttribute="trailing" constant="40" id="HrO-qA-6L8"/>
                             <constraint firstItem="PZR-XF-Ari" firstAttribute="centerX" secondItem="txt-ZP-kKq" secondAttribute="centerX" id="Ukm-CI-OrY"/>
@@ -322,6 +333,7 @@
                             <constraint firstItem="NJJ-2r-3JV" firstAttribute="centerX" secondItem="txt-ZP-kKq" secondAttribute="centerX" id="gF6-0L-Zes"/>
                             <constraint firstAttribute="trailing" secondItem="GAc-Ks-UeW" secondAttribute="trailing" id="iOR-lD-7vA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="uDU-Tt-m7Q" secondAttribute="leading" id="kPc-qv-BPr"/>
+                            <constraint firstItem="e1i-jR-BNy" firstAttribute="top" secondItem="PZR-XF-Ari" secondAttribute="top" id="kkM-TP-maB"/>
                             <constraint firstItem="Rod-u8-N0V" firstAttribute="top" secondItem="uDU-Tt-m7Q" secondAttribute="bottom" constant="14" id="lpK-sn-Do2"/>
                             <constraint firstItem="GAc-Ks-UeW" firstAttribute="top" secondItem="txt-ZP-kKq" secondAttribute="top" id="nL5-tB-LcO"/>
                             <constraint firstItem="N2i-ZQ-Xkf" firstAttribute="top" secondItem="uDU-Tt-m7Q" secondAttribute="bottom" constant="14" id="rhm-Qd-1Bq"/>
@@ -338,6 +350,7 @@
                         <outlet property="nameLabel" destination="uDU-Tt-m7Q" id="UCO-aM-gyU"/>
                         <outlet property="phoneButton" destination="NJJ-2r-3JV" id="7Ro-dY-pdW"/>
                         <outlet property="photoImageView" destination="PZR-XF-Ari" id="Mog-fx-ENb"/>
+                        <outlet property="photoReloadButton" destination="e1i-jR-BNy" id="mcT-Dy-6dZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dsk-SE-hJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,5 +384,6 @@
         <image name="Mail" width="25" height="25"/>
         <image name="Message" width="25" height="25"/>
         <image name="Phone" width="25" height="25"/>
+        <image name="Reload" width="25" height="25"/>
     </resources>
 </document>

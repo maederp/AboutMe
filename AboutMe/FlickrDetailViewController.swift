@@ -28,7 +28,7 @@ class FlickrDetailViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Create Return/Done Navigation Button
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "back", style: .done, target: self, action: #selector(FlickrDetailViewController.dismissViewController))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(FlickrDetailViewController.dismissViewController))
         
         FlickrDetailImageView.image = image
         

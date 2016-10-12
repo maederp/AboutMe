@@ -15,6 +15,7 @@ class AboutMeViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoReloadButton: UIButton!
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -24,6 +25,7 @@ class AboutMeViewController: UIViewController {
     
     private let messageComposer = MessageComposer()
     private let mailComposer = MailComposer()
+    
     
     // MARK: View Lifecycle
     
@@ -37,15 +39,26 @@ class AboutMeViewController: UIViewController {
         photoImageView.image = UIImage(named: "PhotoStack")
         photoImageView.contentMode = .center
         
-        FireStorageClient.sharedInstance().getImage(title: "PeterMaeder-Portrait.jpg") { (image , error) in
-            if error == nil{
-                performUIUpdatesOnMain{
-                    self.photoImageView.image = image
-                    self.photoImageView.contentMode = .scaleAspectFit
-                }
-            }else{
-                performUIUpdatesOnMain{
-                    self.showOKAlert(title: "Alert - No Connection", actionText: "OK", message: "Currently unable to download the AboutMe Image. Please retry later")
+        // Mark: get AboutMe Image from Disk - otherwise download from Firebase
+        let aboutMeImage = getAboutMeImageFromDisk(filename: "PeterMaeder-Portrait.jpg")
+        
+        if aboutMeImage != nil{
+            performUIUpdatesOnMain{
+                self.photoImageView.image = aboutMeImage
+                self.photoImageView.contentMode = .scaleAspectFit
+            }
+        }else{
+            FireStorageClient.sharedInstance().getImage(title: "PeterMaeder-Portrait.jpg") { (image , error) in
+                if error == nil{
+                    performUIUpdatesOnMain{
+                        self.photoImageView.image = image
+                        self.photoImageView.contentMode = .scaleAspectFit
+                        _ = self.saveAboutMeImageToDisk(filename: "PeterMaeder-Portrait.jpg", image: image!)
+                    }
+                }else{
+                    performUIUpdatesOnMain{
+                        self.showOKAlert(title: "Alert - No Connection", actionText: "OK", message: "Currently unable to download the AboutMe Image. Please retry later")
+                    }
                 }
             }
         }
@@ -96,6 +109,31 @@ class AboutMeViewController: UIViewController {
         
     }
     
+    @IBAction func reloadPhotoButtonPressed(_ sender: AnyObject) {
+        
+        //delete image in DocumentFolder
+        
+        FireStorageClient.sharedInstance().getImage(title: "PeterMaeder-Portrait.jpg") { (image , error) in
+            if error == nil{
+                performUIUpdatesOnMain{
+                    self.photoImageView.image = image
+                    self.photoImageView.contentMode = .scaleAspectFit
+                    self.photoImageView.reloadInputViews()
+                    _ = self.saveAboutMeImageToDisk(filename: "PeterMaeder-Portrait.jpg", image: image!)
+                    print("done")
+                }
+            }else{
+                performUIUpdatesOnMain{
+                    self.showOKAlert(title: "Alert - No Connection", actionText: "OK", message: "Currently unable to download the AboutMe Image. Please retry later")
+                }
+            }
+        }
+        
+        
+        //show new image
+    }
+    
+    
     @IBAction func buttonReleased(_ sender: UIButton) {
         sender.backgroundColor = UIColor.lightGray
     }
@@ -115,5 +153,51 @@ class AboutMeViewController: UIViewController {
         alertController.addAction(action)
     
         present(alertController, animated: true, completion: nil)
+    }
+    
+    private func getAboutMeImageFromDisk(filename: String) -> UIImage?{
+        
+        var aboutMeImage : UIImage? = nil
+        
+        let fm = FileManager.default
+        
+        guard let  docUrl = fm.urls(for: .documentDirectory, in: .userDomainMask).first else{
+            print("Unable to reach the documents folder")
+            return nil
+        }
+        
+        let fileURL = docUrl.appendingPathComponent(filename)
+
+        if let data = NSData(contentsOf: fileURL){
+            aboutMeImage = UIImage(data: data as Data)!
+        }
+        
+        return aboutMeImage
+    }
+    
+    private func saveAboutMeImageToDisk(filename: String, image: UIImage) -> Bool {
+        
+        var success = false
+        
+        let fm = FileManager.default
+        
+        guard let  docUrl = fm.urls(for: .documentDirectory, in: .userDomainMask).first else{
+            print("Unable to reach the documents folder")
+            return success
+        }
+        
+        let fileURL = docUrl.appendingPathComponent(filename)
+        let imageData = UIImageJPEGRepresentation(image, 0)
+            
+        if let data = imageData{
+            do{
+                try data.write(to: fileURL)
+                success = true
+            }catch let error as NSError{
+                print("failed to save aboutMeImage. Error: \(error.description)")
+            }
+        }
+        
+        return success
     }
 }

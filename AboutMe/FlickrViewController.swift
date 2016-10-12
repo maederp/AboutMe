@@ -248,7 +248,9 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
             if error == nil{
                 print("Fotos loaded into CoreData")
             }else{
-                print ("Error: \(error?.domain)")
+                performUIUpdatesOnMain {
+                    self.showOKAlert(title: "Error", actionText: "OK", message: "Could not reload Flickr Fotos. Error: \(error?.domain)")
+                }
             }
         })
     }

@@ -37,8 +37,11 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Hide Navigation Bar
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        // Navigation Bar
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        // Create Reload Navigation Button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "reload", style: .plain, target: self, action: #selector(GithubViewController.reloadHandler))
         
         githubTable.delegate = self
         githubTable.dataSource = self
@@ -46,7 +49,9 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         //check if any GithubRepos are fetched from CoreData - if 0, then load them from Github
         if fetchedResultsController.fetchedObjects?.count == 0 {
             
-            GithubClient.sharedInstance().getUserRepoData("maederp", completionHandler: { (data, error) in
+            let githubUser = Bundle.main.object(forInfoDictionaryKey: "GithubUser") as! String
+            
+            GithubClient.sharedInstance().getUserRepoData(githubUser, completionHandler: { (data, error) in
                 if error == nil{
                     performUIUpdatesOnMain {
                         self.githubTable.reloadData()
@@ -66,7 +71,7 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
         let fetchRequest : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "GithubRepository")
         
-        fetchRequest.sortDescriptors = []
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "pushedAt", ascending: false)]
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -127,8 +132,13 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         
         let repo = fetchedResultsController.fetchedObjects?[indexPath.row] as! GithubRepository
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd'.'MM'.'yyyy '-' HH':'mm':'ss"
+        
+        let lastUpdate = dateFormatter.string(from: repo.pushedAt as! Date)
+        
         cell.textLabel?.text = repo.name
-        cell.detailTextLabel?.text = "last update: \(repo.pushedAt!)"
+        cell.detailTextLabel?.text = "last update: \(lastUpdate)"
         
         return cell
     }
@@ -155,4 +165,27 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         present(alertController, animated: true, completion: nil)
     }
     
+    func reloadHandler(_ action: UIAlertAction!){
+        
+        // delete all photos for this pin
+        if let githubRepos = fetchedResultsController.fetchedObjects as? [GithubRepository] {
+            for githubRepo in githubRepos {
+                sharedContext.delete(githubRepo)
+            }
+            CoreDataStackManager.sharedInstance().saveContext()
+        }
+        
+        let githubUser = Bundle.main.object(forInfoDictionaryKey: "GithubUser") as! String
+        
+        GithubClient.sharedInstance().getUserRepoData(githubUser, completionHandler: { (data, error) in
+            
+            if error == nil{
+                print("Github Repositories loaded into CoreData")
+            }else{
+                performUIUpdatesOnMain {
+                    self.showOKAlert(title: "Error", actionText: "OK", message: "Could not reload Github Data. Error: \(error?.domain)")
+                }
+            }
+        })
+    }
 }
