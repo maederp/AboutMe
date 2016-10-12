@@ -83,7 +83,7 @@ class FlickrClient {
                             }
                             
                             CoreDataStackManager.sharedInstance().saveContext()
-                           // completionHandler(true, nil)
+                           
                         }
                     }
                 }
@@ -144,7 +144,7 @@ class FlickrClient {
     }
     
     private func downloadImageFor(urlString: String, completionHandler: @escaping CompletionHandler) {
-        print(urlString)
+        
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         

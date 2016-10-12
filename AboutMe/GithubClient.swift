@@ -6,6 +6,7 @@
 //  Copyright © 2016 Peter Mäder. All rights reserved.
 //
 import Foundation
+import CoreData
 
 let githubAPI : String = "github"
 
@@ -19,6 +20,21 @@ class GithubClient {
         session = URLSession.shared
     }
     
+    // MARK: - Shared Instance
+    class func sharedInstance() -> GithubClient {
+        
+        struct Singleton {
+            static var sharedInstance = GithubClient()
+        }
+        
+        return Singleton.sharedInstance
+    }
+    
+    // NSManagedObjectContext shared context
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
     // MARK: - GitHub convenience Methods to retrieve User Repo Data
     func getUserRepoData(_ userName: String, completionHandler: @escaping CompletionHandler) -> Void {
         
@@ -28,31 +44,27 @@ class GithubClient {
                 completionHandler(nil,error)
             }else{
                 
-                if let githubRepos = result as? [AnyObject]{
-                    var githubRepositories = [String]()
+                if let githubRepos = result as? [[String:AnyObject]]{
                     
                     for githubRepo in githubRepos{
-                        githubRepositories.append(githubRepo["name"] as! String)
+                        
+                        let addGithubDict : [String:AnyObject?] = [
+                            GithubRepository.Keys.ID : githubRepo[GithubClient.GithubResponseKeys.ID],
+                            GithubRepository.Keys.HtmlUrl : githubRepo[GithubClient.GithubResponseKeys.HtmlURL],
+                            GithubRepository.Keys.Name : githubRepo[GithubClient.GithubResponseKeys.RepositoryName],
+                            GithubRepository.Keys.CreatedAt : githubRepo[GithubClient.GithubResponseKeys.CreatedAt],
+                            GithubRepository.Keys.UpdatedAt : githubRepo[GithubClient.GithubResponseKeys.UpdatedAt],
+                            GithubRepository.Keys.PushedAt : githubRepo[GithubClient.GithubResponseKeys.PushedAt]
+                        ]
+                        
+                        let _ = GithubRepository(dictionary: addGithubDict, context: self.sharedContext)
+
                     }
-                    
-                    completionHandler(githubRepositories as AnyObject?, nil)
+                    CoreDataStackManager.sharedInstance().saveContext()
                 }
+                completionHandler(result, nil)
             }
         })
-    }
-    
-
-    
-    
-    // MARK: - Shared Instance
-    
-    class func sharedInstance() -> GithubClient {
-        
-        struct Singleton {
-            static var sharedInstance = GithubClient()
-        }
-        
-        return Singleton.sharedInstance
     }
     
 }

@@ -2,7 +2,7 @@
 //  GithubRepository+CoreDataProperties.swift
 //  AboutMe
 //
-//  Created by Peter Mäder on 05.10.16.
+//  Created by Peter Mäder on 12.10.16.
 //  Copyright © 2016 Peter Mäder. All rights reserved.
 //
 
@@ -16,11 +16,11 @@ extension GithubRepository {
         return NSFetchRequest<GithubRepository>(entityName: "GithubRepository");
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var htmlURL: String?
     @NSManaged public var createdAt: NSDate?
-    @NSManaged public var updatedAt: NSDate?
+    @NSManaged public var htmlURL: String?
     @NSManaged public var id: Int64
-    @NSManaged public var owner: GithubRepositoryOwner?
+    @NSManaged public var name: String?
+    @NSManaged public var updatedAt: NSDate?
+    @NSManaged public var pushedAt: NSDate?
 
 }

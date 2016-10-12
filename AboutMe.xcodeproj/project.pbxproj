@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5BD07A14F15ADB0A241380CD /* Pods_AboutMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB3A31AC73505D3058320D5 /* Pods_AboutMe.framework */; };
+		D002C8011DAD12F5003D7314 /* GithubConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002C8001DAD12F5003D7314 /* GithubConstants.swift */; };
+		D002C8031DAD955F003D7314 /* GithubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002C8021DAD955F003D7314 /* GithubDetailViewController.swift */; };
 		D03E2E511D9711F5004FEE8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03E2E501D9711F5004FEE8A /* AppDelegate.swift */; };
 		D03E2E561D9711F5004FEE8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03E2E541D9711F5004FEE8A /* Main.storyboard */; };
 		D03E2E591D9711F5004FEE8A /* AboutMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D03E2E571D9711F5004FEE8A /* AboutMe.xcdatamodeld */; };
@@ -22,8 +24,6 @@
 		D0B83FEC1D9E31C1009BAE93 /* GithubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FEB1D9E31C1009BAE93 /* GithubClient.swift */; };
 		D0B83FEE1D9E358F009BAE93 /* RestNetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FED1D9E358F009BAE93 /* RestNetworkConstants.swift */; };
 		D0B83FF11DA3E398009BAE93 /* RestNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF01DA3E398009BAE93 /* RestNetworkClient.swift */; };
-		D0B83FF61DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF21DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift */; };
-		D0B83FF71DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF31DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift */; };
 		D0B83FF81DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF41DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift */; };
 		D0B83FF91DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B83FF51DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift */; };
 		D0B83FFF1DA4DAF2009BAE93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B83FFE1DA4DAF2009BAE93 /* GoogleService-Info.plist */; };
@@ -41,6 +41,8 @@
 		2B70ABCE810918EA2B8882AC /* Pods-AboutMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AboutMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-AboutMe/Pods-AboutMe.release.xcconfig"; sourceTree = "<group>"; };
 		44FD6AA97C49CAA618781DEC /* Pods-AboutMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AboutMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AboutMe/Pods-AboutMe.debug.xcconfig"; sourceTree = "<group>"; };
 		6AB3A31AC73505D3058320D5 /* Pods_AboutMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AboutMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D002C8001DAD12F5003D7314 /* GithubConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubConstants.swift; sourceTree = "<group>"; };
+		D002C8021DAD955F003D7314 /* GithubDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubDetailViewController.swift; sourceTree = "<group>"; };
 		D03E2E4D1D9711F5004FEE8A /* AboutMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AboutMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03E2E501D9711F5004FEE8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03E2E551D9711F5004FEE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,8 +59,6 @@
 		D0B83FEB1D9E31C1009BAE93 /* GithubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubClient.swift; sourceTree = "<group>"; };
 		D0B83FED1D9E358F009BAE93 /* RestNetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestNetworkConstants.swift; sourceTree = "<group>"; };
 		D0B83FF01DA3E398009BAE93 /* RestNetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestNetworkClient.swift; sourceTree = "<group>"; };
-		D0B83FF21DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GithubRepositoryOwner+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D0B83FF31DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GithubRepositoryOwner+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B83FF41DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GithubRepository+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D0B83FF51DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GithubRepository+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B83FFE1DA4DAF2009BAE93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -148,8 +148,6 @@
 			children = (
 				D0DAFF541DA65DE700C17D69 /* Photo+CoreDataClass.swift */,
 				D0DAFF551DA65DE700C17D69 /* Photo+CoreDataProperties.swift */,
-				D0B83FF21DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift */,
-				D0B83FF31DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift */,
 				D0B83FF41DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift */,
 				D0B83FF51DA4C417009BAE93 /* GithubRepository+CoreDataProperties.swift */,
 				D03E2E571D9711F5004FEE8A /* AboutMe.xcdatamodeld */,
@@ -183,7 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				D0B83FE91D9D6298009BAE93 /* GithubViewController.swift */,
+				D002C8021DAD955F003D7314 /* GithubDetailViewController.swift */,
 				D0B83FEB1D9E31C1009BAE93 /* GithubClient.swift */,
+				D002C8001DAD12F5003D7314 /* GithubConstants.swift */,
 			);
 			name = Github;
 			sourceTree = "<group>";
@@ -352,9 +352,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0DAFF571DA65DE700C17D69 /* Photo+CoreDataProperties.swift in Sources */,
+				D002C8031DAD955F003D7314 /* GithubDetailViewController.swift in Sources */,
 				D0B83FF81DA4C417009BAE93 /* GithubRepository+CoreDataClass.swift in Sources */,
 				D0B83FEE1D9E358F009BAE93 /* RestNetworkConstants.swift in Sources */,
 				D03E2E761D995CA0004FEE8A /* GCD.swift in Sources */,
+				D002C8011DAD12F5003D7314 /* GithubConstants.swift in Sources */,
 				D0DAFF4F1DA5125D00C17D69 /* FlickrCollectionViewCell.swift in Sources */,
 				D0566B6A1D9A8D2D004CEC13 /* FireStorageClient.swift in Sources */,
 				D03E2E591D9711F5004FEE8A /* AboutMe.xcdatamodeld in Sources */,
@@ -363,14 +365,12 @@
 				D0B83FF11DA3E398009BAE93 /* RestNetworkClient.swift in Sources */,
 				D03E2E511D9711F5004FEE8A /* AppDelegate.swift in Sources */,
 				D0DAFF561DA65DE700C17D69 /* Photo+CoreDataClass.swift in Sources */,
-				D0B83FF71DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataProperties.swift in Sources */,
 				D0DAFF5B1DA7BA6300C17D69 /* FlickrDetailViewController.swift in Sources */,
 				D0DAFF591DA6679D00C17D69 /* CoreDataStackManager.swift in Sources */,
 				D0B83FE41D9D3089009BAE93 /* MessageComposer.swift in Sources */,
 				D0B83FE61D9D511F009BAE93 /* MailComposer.swift in Sources */,
 				D0B83FEC1D9E31C1009BAE93 /* GithubClient.swift in Sources */,
 				D03E2E6C1D99442B004FEE8A /* AboutMeViewController.swift in Sources */,
-				D0B83FF61DA4C417009BAE93 /* GithubRepositoryOwner+CoreDataClass.swift in Sources */,
 				D0B83FEA1D9D6298009BAE93 /* GithubViewController.swift in Sources */,
 				D0B840011DA50D10009BAE93 /* FlickrViewController.swift in Sources */,
 				D0DAFF511DA56AC900C17D69 /* FlickrClient.swift in Sources */,
