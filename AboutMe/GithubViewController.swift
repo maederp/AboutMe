@@ -133,6 +133,8 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         let repo = fetchedResultsController.fetchedObjects?[indexPath.row] as! GithubRepository
         
         let dateFormatter = DateFormatter()
+        let local = Locale(identifier: "de_CH")
+        dateFormatter.locale = local
         dateFormatter.dateFormat = "dd'.'MM'.'yyyy '-' HH':'mm':'ss"
         
         let lastUpdate = dateFormatter.string(from: repo.pushedAt as! Date)

@@ -35,7 +35,7 @@ public class GithubRepository: NSManagedObject {
          "updated_at": "2016-09-27T21:20:06Z"
          */
         let formatter_rfc3339 = DateFormatter()
-        let local = Locale(identifier: "en_US_POSIX")
+        let local = Locale(identifier: "de_CH")
         formatter_rfc3339.locale = local
         
         formatter_rfc3339.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
