@@ -321,11 +321,13 @@
                                     <action selector="reloadPhotoButtonPressed:" destination="PGL-W8-8ET" eventType="touchUpInside" id="lxC-RM-ceh"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zlg-L2-emK"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="uDU-Tt-m7Q" secondAttribute="trailing" id="45Z-hT-UsL"/>
                             <constraint firstItem="e1i-jR-BNy" firstAttribute="trailing" secondItem="PZR-XF-Ari" secondAttribute="trailing" id="7Uv-wp-lIL"/>
+                            <constraint firstItem="zlg-L2-emK" firstAttribute="centerY" secondItem="PZR-XF-Ari" secondAttribute="centerY" id="9M5-Wg-CuL"/>
                             <constraint firstItem="GAc-Ks-UeW" firstAttribute="leading" secondItem="txt-ZP-kKq" secondAttribute="leading" id="FmX-Yp-56G"/>
                             <constraint firstItem="NJJ-2r-3JV" firstAttribute="leading" secondItem="Rod-u8-N0V" secondAttribute="trailing" constant="40" id="HrO-qA-6L8"/>
                             <constraint firstItem="PZR-XF-Ari" firstAttribute="centerX" secondItem="txt-ZP-kKq" secondAttribute="centerX" id="Ukm-CI-OrY"/>
@@ -340,6 +342,7 @@
                             <constraint firstItem="NJJ-2r-3JV" firstAttribute="top" secondItem="uDU-Tt-m7Q" secondAttribute="bottom" constant="14" id="rni-n8-aIk"/>
                             <constraint firstItem="uDU-Tt-m7Q" firstAttribute="top" secondItem="PZR-XF-Ari" secondAttribute="bottom" constant="8" id="uY8-Of-L6t"/>
                             <constraint firstItem="PZR-XF-Ari" firstAttribute="top" secondItem="GAc-Ks-UeW" secondAttribute="bottom" constant="-100" id="vye-OZ-lBy"/>
+                            <constraint firstItem="zlg-L2-emK" firstAttribute="centerX" secondItem="PZR-XF-Ari" secondAttribute="centerX" id="xN5-ZD-VBO"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="AboutMe" image="AboutMe" id="Qf1-wA-sGI"/>
@@ -349,6 +352,7 @@
                         <outlet property="messageButton" destination="Rod-u8-N0V" id="eKP-Yn-rJh"/>
                         <outlet property="nameLabel" destination="uDU-Tt-m7Q" id="UCO-aM-gyU"/>
                         <outlet property="phoneButton" destination="NJJ-2r-3JV" id="7Ro-dY-pdW"/>
+                        <outlet property="photoImageActivityViewIndicator" destination="zlg-L2-emK" id="NlM-Y3-VZ0"/>
                         <outlet property="photoImageView" destination="PZR-XF-Ari" id="Mog-fx-ENb"/>
                         <outlet property="photoReloadButton" destination="e1i-jR-BNy" id="mcT-Dy-6dZ"/>
                     </connections>

@@ -34,8 +34,6 @@ class RestNetworkClient {
         /* Build the URL, Configure the request */
         var request = URLRequest(url: requestURL)
         
-        print("GetRequest URL: \(request)")
-        
         /* Create and execute the request */
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             

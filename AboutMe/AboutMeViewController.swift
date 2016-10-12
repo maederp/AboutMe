@@ -16,6 +16,7 @@ class AboutMeViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var photoReloadButton: UIButton!
+    @IBOutlet weak var photoImageActivityViewIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -48,15 +49,21 @@ class AboutMeViewController: UIViewController {
                 self.photoImageView.contentMode = .scaleAspectFit
             }
         }else{
+            performUIUpdatesOnMain {
+                self.photoImageActivityViewIndicator.startAnimating()
+            }
+            
             FireStorageClient.sharedInstance().getImage(title: "PeterMaeder-Portrait.jpg") { (image , error) in
                 if error == nil{
                     performUIUpdatesOnMain{
                         self.photoImageView.image = image
                         self.photoImageView.contentMode = .scaleAspectFit
                         _ = self.saveAboutMeImageToDisk(filename: "PeterMaeder-Portrait.jpg", image: image!)
+                        self.photoImageActivityViewIndicator.stopAnimating()
                     }
                 }else{
                     performUIUpdatesOnMain{
+                        self.photoImageActivityViewIndicator.stopAnimating()
                         self.showOKAlert(title: "Alert - No Connection", actionText: "OK", message: "Currently unable to download the AboutMe Image. Please retry later")
                     }
                 }
@@ -111,7 +118,11 @@ class AboutMeViewController: UIViewController {
     
     @IBAction func reloadPhotoButtonPressed(_ sender: AnyObject) {
         
-        //delete image in DocumentFolder
+        performUIUpdatesOnMain {
+            self.photoImageView.image = UIImage(named: "PhotoStack")
+            self.photoImageView.contentMode = .center
+            self.photoImageActivityViewIndicator.startAnimating()
+        }
         
         FireStorageClient.sharedInstance().getImage(title: "PeterMaeder-Portrait.jpg") { (image , error) in
             if error == nil{
@@ -120,17 +131,15 @@ class AboutMeViewController: UIViewController {
                     self.photoImageView.contentMode = .scaleAspectFit
                     self.photoImageView.reloadInputViews()
                     _ = self.saveAboutMeImageToDisk(filename: "PeterMaeder-Portrait.jpg", image: image!)
-                    print("done")
+                    self.photoImageActivityViewIndicator.stopAnimating()
                 }
             }else{
                 performUIUpdatesOnMain{
+                    self.photoImageView.image = UIImage(named: "PhotoStack")
                     self.showOKAlert(title: "Alert - No Connection", actionText: "OK", message: "Currently unable to download the AboutMe Image. Please retry later")
                 }
             }
         }
-        
-        
-        //show new image
     }
     
     
