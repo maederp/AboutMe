@@ -53,6 +53,11 @@ class GithubDetailViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        
+        performUIUpdatesOnMain {
+            self.githubWebViewActivityIndicator.stopAnimating()
+        }
+        
         showOKAlert(title: "Cannot load page", actionText: "OK", message: "Website load currently not possible")
     }
     

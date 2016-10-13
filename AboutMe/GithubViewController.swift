@@ -20,9 +20,22 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.backgroundColor = UIColor.white
+        refreshControl.tintColor = UIColor.darkGray
+        
+        refreshControl.addTarget(self, action: #selector(self.reloadHandler), for: UIControlEvents.valueChanged)
+    
+        return refreshControl
+    }()
+    
     // MARK: View Lifecycle Section
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print("refresh")
+        githubTable.addSubview(refreshControl)
         
         // MARK: fetch Photos from CoreData
         do{
@@ -38,31 +51,28 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewWillAppear(animated)
         
         // Navigation Bar
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        // Create Reload Navigation Button
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "reload", style: .plain, target: self, action: #selector(GithubViewController.reloadHandler))
-        
+        navigationController?.setNavigationBarHidden(false, animated: true)        
+       
         githubTable.delegate = self
         githubTable.dataSource = self
         
         //check if any GithubRepos are fetched from CoreData - if 0, then load them from Github
         if fetchedResultsController.fetchedObjects?.count == 0 {
+
+            let noDataMessage = UILabel()
+            noDataMessage.text = "No Repositories loaded from Github yet. Please pull down to refresh"
+            noDataMessage.textColor = UIColor.black
+            noDataMessage.numberOfLines = 0
+            noDataMessage.textAlignment = .center
+            noDataMessage.font = UIFont.systemFont(ofSize: 17)
+            noDataMessage.sizeToFit()
             
-            let githubUser = Bundle.main.object(forInfoDictionaryKey: "GithubUser") as! String
+            self.githubTable.backgroundView = noDataMessage
+            self.githubTable.separatorStyle = UITableViewCellSeparatorStyle.none
             
-            GithubClient.sharedInstance().getUserRepoData(githubUser, completionHandler: { (data, error) in
-                if error == nil{
-                    performUIUpdatesOnMain {
-                        self.githubTable.reloadData()
-                    }
-                    
-                }else{
-                    
-                    self.showOKAlert(title: "Alert - Github Data unavailable", actionText: "OK", message: "Cannot load Github Data. Please retry later")
-                }
-            })
-            
+        }else{
+            self.githubTable.backgroundView = nil
+            self.githubTable.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         }
     }
     
@@ -137,10 +147,17 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         dateFormatter.locale = local
         dateFormatter.dateFormat = "dd'.'MM'.'yyyy '-' HH':'mm':'ss"
         
-        let lastUpdate = dateFormatter.string(from: repo.pushedAt as! Date)
+        
+        var lastUpdateString = String()
+        
+        if let lastUpdateDate = repo.pushedAt as? Date{
+            lastUpdateString = dateFormatter.string(from: lastUpdateDate)
+        }else{
+            lastUpdateString = "* not available *"
+        }
         
         cell.textLabel?.text = repo.name
-        cell.detailTextLabel?.text = "last update: \(lastUpdate)"
+        cell.detailTextLabel?.text = "last update: \(lastUpdateString)"
         
         return cell
     }
@@ -169,7 +186,7 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
     
     func reloadHandler(_ action: UIAlertAction!){
         
-        // delete all photos for this pin
+        // delete all github repositories from core data
         if let githubRepos = fetchedResultsController.fetchedObjects as? [GithubRepository] {
             for githubRepo in githubRepos {
                 sharedContext.delete(githubRepo)
@@ -182,12 +199,20 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         GithubClient.sharedInstance().getUserRepoData(githubUser, completionHandler: { (data, error) in
             
             if error == nil{
-                print("Github Repositories loaded into CoreData")
+                performUIUpdatesOnMain {
+                    self.githubTable.backgroundView = nil
+                    self.githubTable.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+                }
             }else{
                 performUIUpdatesOnMain {
                     self.showOKAlert(title: "Error", actionText: "OK", message: "Could not reload Github Data. Error: \(error?.domain)")
                 }
             }
+            
+            performUIUpdatesOnMain {
+                self.refreshControl.endRefreshing()
+            }
+            
         })
     }
 }

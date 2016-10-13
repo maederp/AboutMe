@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="252" y="620"/>
         </scene>
-        <!--GitHub-->
+        <!--Github Repositories-->
         <scene sceneID="JiC-lm-clS">
             <objects>
                 <viewController id="BSP-hV-sO9" customClass="GithubViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,7 +75,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="GitHub" image="Github" id="hnV-Gp-sa8"/>
-                    <navigationItem key="navigationItem" id="2vQ-su-abF"/>
+                    <navigationItem key="navigationItem" title="Github Repositories" id="2vQ-su-abF"/>
                     <connections>
                         <outlet property="githubTable" destination="LPM-eO-ypa" id="WaZ-Jj-MF5"/>
                         <segue destination="bTk-Uz-o60" kind="show" identifier="showGithubDetailWebView" id="7ca-h0-vvA"/>
@@ -166,7 +166,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="138"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zpz-X1-Uf3"/>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zpz-X1-Uf3"/>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Huu-Pm-Ru1"/>
                                             </subviews>
                                         </view>

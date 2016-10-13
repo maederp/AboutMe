@@ -137,11 +137,7 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
                         }
                     }
                 }
-            } else {
-                
-                print("irgend ein Problem")
-                
-            }
+            } 
         }
 
         return cell
@@ -149,12 +145,20 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let photo = fetchedResultsController.object(at: indexPath) as? Photo
+        guard let photo = (fetchedResultsController.object(at: indexPath) as? Photo) else{
+            self.showOKAlert(title: "Failure", actionText: "OK", message: "No Photo can be retrieved. Please reload photos")
+            return
+        }
+        
+        guard let imageData = (photo.image as? Data) else{
+            self.showOKAlert(title: "Failure", actionText: "OK", message: "No Photo can be retrieved. Please reload photos")
+            return
+        }
         
         performUIUpdatesOnMain {
             if let imageDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "FlickrDetailViewController") as? FlickrDetailViewController{
             
-                imageDetailVC.image = UIImage(data: (photo?.image as? Data)!)
+                imageDetailVC.image = UIImage(data: imageData)
                 self.navigationController?.pushViewController(imageDetailVC, animated: true)
             }
         }
@@ -233,7 +237,7 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func reloadHandler(_ action: UIAlertAction!){
         
-        // delete all photos for this pin
+        // delete all photos from core data
         if let photos = fetchedResultsController.fetchedObjects as? [Photo] {
             for photo in photos {
                 sharedContext.delete(photo)
