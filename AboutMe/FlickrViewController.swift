@@ -68,12 +68,12 @@ class FlickrViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.becomeFirstResponder()
+        becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.resignFirstResponder()
         super.viewWillDisappear(animated)
+        resignFirstResponder()
     }
     
     override var canBecomeFirstResponder: Bool{

@@ -8,11 +8,13 @@
 import Foundation
 import CoreData
 
-let githubAPI : String = "github"
+
 
 class GithubClient {
 
     typealias CompletionHandler = (_ result: AnyObject?, _ error: NSError?) -> Void
+    
+    let githubAPI : String = "github"
     
     var session: URLSession
     

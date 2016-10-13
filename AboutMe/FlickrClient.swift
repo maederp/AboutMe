@@ -9,11 +9,12 @@
 import Foundation
 import CoreData
 
-let flickrAPI : String = "flickr"
 
 class FlickrClient {
 
     typealias CompletionHandler = (_ result: AnyObject?, _ error: NSError?) -> Void
+    
+    let flickrAPI : String = "flickr"
     
     var session: URLSession
     
@@ -54,7 +55,7 @@ class FlickrClient {
             FlickrClient.ConstantsFlickrPhotoSearch.UserID : userID as AnyObject,
             FlickrClient.ConstantsFlickrPhotoSearch.Format : "json" as AnyObject,
             FlickrClient.ConstantsFlickrPhotoSearch.NoJSONCallBack : 1 as AnyObject,
-            FlickrClient.ConstantsFlickrPhotoSearch.Per_page : 48 as AnyObject,
+            FlickrClient.ConstantsFlickrPhotoSearch.Per_page : FlickrClient.ConstantsFlickrPhotoSearch.maxPhotoNr as AnyObject,
             FlickrClient.ConstantsFlickrPhotoSearch.Page : flickrSearchPage as AnyObject
         ]
         

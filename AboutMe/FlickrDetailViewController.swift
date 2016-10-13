@@ -16,11 +16,8 @@ class FlickrDetailViewController: UIViewController {
     
     var image : UIImage!
     
-    // MARK: View Lifecycle Section
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    // MARK: View Lifecycle Section
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

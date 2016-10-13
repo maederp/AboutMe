@@ -36,6 +36,16 @@ class GithubDetailViewController: UIViewController, UIWebViewDelegate {
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        // stop loading if view controller did disappear to avoid app crash
+        
+        if githubWebView.isLoading {
+            githubWebView.stopLoading()
+        }
+        
+        super.viewDidDisappear(animated)
+    }
+    
     // MARK: Webview Delegate session
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
@@ -51,14 +61,14 @@ class GithubDetailViewController: UIViewController, UIWebViewDelegate {
             self.githubWebViewActivityIndicator.stopAnimating()
         }
     }
-    
+   
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         
         performUIUpdatesOnMain {
             self.githubWebViewActivityIndicator.stopAnimating()
         }
         
-        showOKAlert(title: "Cannot load page", actionText: "OK", message: "Website load currently not possible")
+        showOKAlert(title: "Cannot load page", actionText: "OK", message: "Website load currently not possible. Error: \(error.localizedDescription)")
     }
     
     

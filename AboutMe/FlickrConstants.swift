@@ -26,6 +26,7 @@ extension FlickrClient{
         static let Page = "page"
         static let Format = "format"
         static let NoJSONCallBack = "nojsoncallback"
+        static let maxPhotoNr = 48
     }
     
     struct ConstantsFlickrPhotoSearchResponse {
